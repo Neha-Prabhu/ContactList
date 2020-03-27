@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title><%= title %></title>
+        <script src="https://kit.fontawesome.com/7ecc1c5dde.js" crossorigin="anonymous"></script>
+        <!--our css should be below all other styles so that we can overrride it-->
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <h1 id="page-heading">
+            <i class="fas fa-address-book"></i> Contact List </h1>
+
+        <div class= "contact-bg">
+            <ul style="list-style-type: none">
+                <% for (let i of contact_list) {%>
+                    <li class="contact">
+                    <center>
+                        <div class="details">
+                            <p><%= i.name %></p>
+                            <p><%= i.phone %></p>
+                        </div>
+                    </center>
+                    </li>
+                <%}%>
+            </ul>
+        </div>
+        <center>
+        <div class="form">
+        <form action="/create" method="POST">
+            <input type="text" name="name" placeholder="Enter name" required>
+            <input type="text" name="phone" placeholder="Enter phone" required>
+
+            <button type="submit">Add Contact</button>
+        </form>
+        </div>
+    </center>
+        <script type="text/javascript" src="/js/home.js"></script>
+    </body>
+</html>

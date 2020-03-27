@@ -1,0 +1,36 @@
+body{
+    margin : 0;
+    font-family: sans-serif;
+
+
+
+}
+#page-heading{
+    text-align: center;
+    margin-top: 25px;
+    color : black; 
+}
+
+.contact{
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    border : 1px white;
+
+}
+.details{
+
+    background-color:#035efc;
+    padding: 0.05rem;
+    width: 400px;
+    height: 40px;
+    border : 2px solid white;
+    display : flex;
+    justify-content: space-between;
+}
+
+input{
+    border : 10px 1px 2px 3px solid black;
+    
+
+}

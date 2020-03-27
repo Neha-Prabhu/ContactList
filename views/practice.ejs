@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>
+            <%= locals.title %>
+        </title>
+    </head>
+    <body>
+        <h1>PlayGround.</h1>
+        <h2> Imma rending here: <%= boom %> </h2>
+
+        <UL>
+            <% for (let i=0;i<6;i++){ %>
+            <li>
+                <%= i %>
+            </li>
+            <% } %>
+        </UL>
+
+        <% if(true){ %>
+            <h1>It's True</h1>
+
+        <% } else{ %>
+            <p>Its false :{ </p>
+        <% }%>
+    </body>
+</html>
