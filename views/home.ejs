@@ -17,6 +17,11 @@
                         <div class="details">
                             <p><%= i.name %></p>
                             <p><%= i.phone %></p>
+                            <div class="delete-button">
+                                    <a href="/delete/?id=<%= i._id%>">
+                                        <i class="fas fa-window-close"></i>
+                                    </a>
+                                </div>
                         </div>
                     </center>
                     </li>
@@ -25,11 +30,11 @@
         </div>
         <center>
         <div class="form">
-        <form action="/create" method="POST">
+        <form id="contact-form" action="/create" method="POST">
             <input type="text" name="name" placeholder="Enter name" required>
             <input type="text" name="phone" placeholder="Enter phone" required>
 
-            <button type="submit">Add Contact</button>
+            <button type="submit">Add</button>
         </form>
         </div>
     </center>

@@ -11,26 +11,62 @@ body{
     color : black; 
 }
 
+#contact-bg ul{
+    padding : 0;
+    list-style: none;
+}
+
 .contact{
+    padding : 3px 3px;
+    border : 1px solid white;
     text-align: center;
     color: white;
     font-family: sans-serif;
-    border : 1px white;
+ 
 
 }
-.details{
-
-    background-color:#035efc;
-    padding: 0.05rem;
-    width: 400px;
-    height: 40px;
-    border : 2px solid white;
-    display : flex;
-    justify-content: space-between;
-}
-
-input{
-    border : 10px 1px 2px 3px solid black;
+.contact .details{
     
 
+    border : 2px solid white;
+    background-color:#035efc;
+    padding : 0px 5px;
+    display : flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width : 50%;
+}
+
+.contact .delete-button{
+    width: 10%;
+    padding : 3px;
+    text-align: center;
+    margin-top : 10px; 
+}
+
+.contact .delete-button a{
+    color: white;
+    background-color: #035efc;
+}
+
+
+
+#contact-form{
+
+    justify-content: space-between;
+}
+input{
+    border-top : 0px white;
+    border-left : 0px white;
+    border-right : 0px white;
+    border-bottom : 1px solid black;
+    
+}
+
+button{
+    font-family: sans-serif;
+    background-color: grey;
+    width: 60px;
+    height: 30px;
 }

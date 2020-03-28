@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const port=8000;
 
+const db = require('./config/mongoose');
+const Contact = require('./models/contact');
+
 const app= express();
 
 
@@ -45,10 +48,19 @@ var contactList = [
 app.get('/',function(req,res){
     
     //console.log("my name from xontroller is: ",req.Myname);
-    return res.render('home' , {
-        "title" : "Contact List",
-        contact_list :  contactList
+
+    Contact.find({},function(err,conts){
+        if(err){
+            console.log('error in fetching contacts from db');
+            return;
+        }
+        return res.render('home' , {
+            "title" : "Contact List",
+            contact_list :  conts
+        });
+
     });
+    
 });
 
 app.get('/practice',function(req,res){
@@ -61,17 +73,32 @@ app.get('/practice',function(req,res){
 app.post('/create', function(req,res){
     // return res.redirect('/practice');
     // console.log(req.body);
-
-    /*contactList.push({
-        name : req.body.name,
-        phone : req.body.phone
-    });*/  
-
-    contactList.push(req.body); //shoter way to append
-
+    Contact.create(req.body, function(err,newContact){
+        if(err){
+            console.log(' error in creating a contact!');
+            return;
+        }
+        // console.log('*****',newContact);
+        res.redirect('back');
+    });
     // return res.redirect('/');
-    return res.redirect('back');   //shortcut to redirect to same page
-})
+    // return res.redirect('back');   //shortcut to redirect to same page
+});
+
+app.get('/delete', function(req,res){
+    //get the id from query in the url
+    let id = req.query.id;
+
+    //find the cont in db using id and del
+    Contact.findByIdAndDelete(id,function(err){
+        if(err){
+            console.log('errir in del');
+            return;
+        }
+        return res.redirect('back');
+    });
+
+});
 
 app.listen(port, function(err){
     if(err){
